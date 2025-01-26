@@ -1,0 +1,17 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: testsou
+spec:
+  interval: 1m
+  timeout: 300s
+  releaseName: testsou
+  targetNamespace: default
+  chart:
+    spec:
+      chart: testHelm
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: GitRepository
+        name: repo-helm-chart
+      
